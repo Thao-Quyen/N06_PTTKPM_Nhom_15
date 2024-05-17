@@ -1,0 +1,48 @@
+$logoWidth : 75px;
+
+.css-logo{
+    @media all and (max-width: 600px) {
+        width: 38px;
+        height: 61px;
+        padding: 3px;
+        margin-top: 0px;
+    }
+    background-color: #E21837;
+    padding: 7px;
+    position: relative;
+    width:$logoWidth;
+    height: 122px;
+
+    .lines{
+        height: 70%;
+        width: 100%;
+        padding: 9% 6% 18%;
+        .lines-inner{
+            width: 100%;
+            height: 100%;
+            font-size: 0px;
+        }
+        .line{
+            height: 100%;
+            width: 20%;
+            background-color: #ffffff;
+            display: inline-block;
+            &.center{
+                margin: 0 20%;
+            }
+        }
+        .bowl-warpper{
+            height: 55%;
+            width: 95%;
+            margin: 0 auto;
+            padding-top: 10%;
+
+            .bowl{
+                background-color:#ffffff;
+                height: 100%;
+                border-radius: 50% 50%;
+                transform: translateY(-57%);
+            }
+        }
+    }
+}
