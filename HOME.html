@@ -83,10 +83,10 @@
 
             </div>
 
-            <!-- <div id="nav-popup" data-colour="#E21837" data-image="#">
+            <div id="nav-popup" data-colour="#E21837" data-image="#">
                 <div class="row align-items-center">
                     <div class="hamburger-wrapper u__wrapper">
-                        <div class="hamburger">
+                        <div class="hamburger js__open-nav">
                             <div class="line top"></div>
                             <div class="line middle"></div>
                             <div class="line bottom"></div>
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="col-6 nav-popup__img">
-                        <img src="#" alt="Nav background">
+                        <img src="/wp-content/themes/library/images/04.png" alt=""/>
                     </div>
 
                     <div class="col-6 nav-popup__links">
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
         </header>
 
@@ -155,9 +155,9 @@
                 <main class="content front-page" data-template="front-page" data-site="HOME.html">
                     <div class="front-page-gradient"></div>
 
-                    <section class="hero-image">
+                    <section class="hero-image u__fullScreen js__background-change" data-active="1" data-colour="" data-image="./wp-content/themes/library/images/background.jpg">
                         <div class="hero-image__img-wrapper">
-                            <img class="desktop" src="./wp-content/themes/library/images/background.jpg">
+                            <img class="desktop" src="./wp-content/themes/library/images/01.png">
                         </div>
 
                         <div class="u__wrapper">
@@ -182,31 +182,117 @@
                         </div>
                     </section>
 
-                    <section class="text-columns u__fullScreen">
+                    <section class="text-columns u__fullScreen js__background-change" data-image="./wp-content/themes/library/images/background.jpg" >
                         <div class="u__wrapper row align-items-center justify-content-center">
-                            <div class="text col-md-6">
+                            
+                                <div class="text col-md-6">
                                 <div class="red-background">
-                                    <p>Coeliac</p>
+                                    <p>Our Story</p>
                                 </div> 
-                                <div class="white-background white-background--1">
+                                <div class="white-background">
+                                    <p>Stephen and Juliette</p>
+                                </div>
+                                <div class="box">
+                                        <p>Stephen and Juliette Wall opened Pho after they travelled to Vietnam and fell in love with the food. </p>
+                                        <a href="" class="button">See More</a>
+                                </div>
+                            </div>
+
+                            <div class="image col-md-6 ">
+                                <div class="image-wrapper u__imgBorder">
+                                    <img src="./wp-content/themes/library/images/03.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="text-columns u__fullScreen js__background" data-image="./wp-content/themes/library/images/background.jpg" >
+                        <div class="u__wrapper row align-items-center justify-content-center flex-md-row-reverse">
+                            
+                                <div class="text col-md-6">
+                                <div class="red-background">
+                                    <p>Celiac</p>
+                                </div> 
+                                <div class="white-background">
                                     <p>Awareness Month</p>
                                 </div>
                                 <div class="box">
-                                    <p>Our menu is 98% gluten free, and we have been accredited by Coeliac UK for nine years!</p>
+                                        <p>Our menu is 98% gluten free, and we have been accredited by Coeliac UK for nine years! </p>
                                         <a href="" class="button">Learn More</a>
                                 </div>
                             </div>
 
                             <div class="image col-md-6 ">
                                 <div class="image-wrapper u__imgBorder">
-                                    <img src="https://www.phocafe.co.uk/wp-content/uploads/2024/05/Pho-email-icon.jpg" alt="">
+                                    <img src="./wp-content/themes/library/images/gluten-free.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                     </section>
+
+                    <section class="text-columns u__fullScreen js__background-change" data-image="./wp-content/themes/library/images/background.jpg" >
+                        <div class="u__wrapper row align-items-center justify-content-center">
+                            
+                                <div class="text col-md-6">
+                                <div class="red-background">
+                                    <p>JUST PHO</p>
+                                </div> 
+                                <div class="white-background">
+                                    <p>STUDENTS</p>
+                                </div>
+                                <div class="box">
+                                        <p>Students! You can get 15% off food when you dine in at selected restaurants. We've got you. </p>
+                                        <a href="" class="button">See More</a>
+                                </div>
+                            </div>
+
+                            <div class="image col-md-6 ">
+                                <div class="image-wrapper u__imgBorder">
+                                    <img src="./wp-content/themes/library/images/students.webp" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="newsletter-wrapper col-12">
+                        <div class="newsletter-v2 u__wrapper">
+                            <div class="d-flex">
+                                <img src="./wp-content/themes/library/images/notepad.webp" alt="">
+
+                                <div class="newsletter-v2__header">
+                                    <label for="EMAIL">NEWS AND OFFERS</label>
+                                    <p>Sign up to our newsletter to keep up-to-date with all the latest news and offers</p>
+                                </div>
+                                <form id="footer__mailing-list__form" name="footer__mailing-list__form" class="signup__form mailing-list__form">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <input type="text" value=""  placeholder="Type your first name*">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" value=""  placeholder="Type your last name*">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" value=""  placeholder="Type your email address*">
+                                        </div>
+                                        <divc class="col-md-4">
+                                            <input type="text" value=""  placeholder="Type your D.O.B">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" value=""  placeholder="Type your phone number*">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div></div>
+                                        </div>
+                                </from>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </main>
             </div>
         </div>
+
+        <script type="text/javascript" src="https://www.phocafe.co.uk/wp-content/themes/pho-2018/library/dist/js/main.min.js?debug=1715582187" id="main_js-js"></script>        
 
     </body>
 </html>
