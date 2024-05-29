@@ -1485,6 +1485,74 @@ body {
     text-decoration: none
 }
 
+footer {
+    background-color: #e21837;
+    padding: 75px 0;
+    position: relative;
+    /* transition: opacity 5s ease; */
+    z-index: 2;
+}
+footer .u__wrapper {
+    position: relative;
+}
+
+.nav {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* list-style: none; */
+    /* margin-bottom: 0; */
+    /* padding-left: 0 */
+}
+/* footer nav {
+    display: inline-block;
+    vertical-align: middle;
+} */
+
+footer nav li {
+    /* margin-bottom: 10px; */
+    /* width: 100%; */
+}
+
+footer li a {
+    padding: 5px 20px;
+}
+
+footer a{
+    color: #fff;
+    font-family: KGHappySolid;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+footer a:hover {
+    color: #000;
+    text-decoration: none;
+}
+footer nav a {
+    transition: .5s;
+}
+footer .social ul li i {
+    color: #fff;
+    font-size: 25px;
+}
+footer .social ul li a {
+    padding: 8px;
+}
+
+footer .social ul li {
+    align-items: center;
+    background-color: #e21837;
+    border-radius: 50%;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    margin: 0 0 10px;
+    transition: .5s;
+    width: 40px;
+}
+footer .social ul li:hover {
+    background-color: #000;
+}
 .col-md-6, .col-6, .col-12, .col-md-4{
     min-height: 1px;
     padding-left: 15px;
@@ -1651,18 +1719,72 @@ section {
     line-height: 24px
 }
 
-/* input {
+input {
     font-size: 100%;
     line-height: 1.15;
-} */
+}
 
 .newsletter-v2 form input {
     border: 2px solid #bfbfbf;
-    /* color: #000; */
+    color: #000;
     /* display: inline; */
     font-family: KGHappySolid;
     font-size: 14px;
-    /* line-height: 30px; */
+    line-height: 22px;
     padding: 11px;
+    margin-bottom: 30px;
     vertical-align: middle;
+    width: 100%;
 }
+
+/* .newsletter-v2 form {
+    display: flex;
+} */
+
+/* .newsletter-v2 form input {
+    margin-right: 150px;
+} */
+
+.newsletter-v2 form .checkbox_holder {
+    align-items: center;
+    display: flex
+}
+/* .newsletter-v2 form .checkbox_holder input {
+    display: inline-block;
+    margin: 0;
+    width: auto
+} */
+
+/* .checkbox_holder {
+    max-width: 409px
+} */
+/* .checkbox_holder {
+    max-width: 600px;
+    margin-left: 4%;
+    display: flex;
+    align-items: center;
+} */
+
+/* .checkbox_holder {
+    margin-left: 3%;
+} */
+.checkbox_holder p {
+    display: inline-block;
+    font-size: 12px;
+    /* line-height: 14px; */
+    /* margin-bottom: 9px; */
+    margin-left: 20px;
+    /* margin-top: 12px; */
+    max-width: 85%;
+    /* vertical-align: middle; */
+}
+.checkbox_holder input {
+    /* display: inline-block; */
+    max-width: 5%;
+    margin-top: 12px ;
+    /* vertical-align: middle; */
+}
+
+
+
+
