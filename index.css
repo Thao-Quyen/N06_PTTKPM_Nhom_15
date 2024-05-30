@@ -919,7 +919,7 @@ header .social a:hover {
 }
 
 header .popup-footer nav {
-    display: block;
+    /* display: block; */
     margin-bottom: 15px
 }
 
@@ -1486,7 +1486,7 @@ body {
 }
 
 footer {
-    background-color: #e21837;
+    background-color: #000;
     padding: 75px 0;
     position: relative;
     /* transition: opacity 5s ease; */
@@ -1496,13 +1496,19 @@ footer .u__wrapper {
     position: relative;
 }
 
-.nav {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* list-style: none; */
-    /* margin-bottom: 0; */
-    /* padding-left: 0 */
+footer .u__wrapper.top {
+    display: flex;
+    /* align-items: flex-start; */
+    justify-content: space-between;
 }
+
+/* .nav {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0
+} */
 /* footer nav {
     display: inline-block;
     vertical-align: middle;
@@ -1517,41 +1523,59 @@ footer li a {
     padding: 5px 20px;
 }
 
-footer a{
+footer a, footer p{
     color: #fff;
     font-family: KGHappySolid;
     font-size: 12px;
     line-height: 20px;
 }
-
 footer a:hover {
-    color: #000;
+    color: #a4dac8;
     text-decoration: none;
 }
 footer nav a {
     transition: .5s;
 }
+footer .social {
+    margin-right: 15px;
+}
 footer .social ul li i {
-    color: #fff;
+    color: #000;
     font-size: 25px;
 }
 footer .social ul li a {
-    padding: 8px;
+    /* padding: 8px; */
 }
-
+footer .social ul {
+    /* display: block; */
+    /* margin: 0; */
+    /* padding: 0; */
+}
+footer .social ul {
+    display: flex;
+}
 footer .social ul li {
     align-items: center;
-    background-color: #e21837;
+    background-color: #fff;
     border-radius: 50%;
     display: flex;
-    height: 40px;
+    height: 50px;
     justify-content: center;
-    margin: 0 0 10px;
+    margin-left: 15px;
     transition: .5s;
-    width: 40px;
+    width: 50px;
 }
 footer .social ul li:hover {
-    background-color: #000;
+    background-color: #a4dac8;
+}
+footer .footer__bottom {
+    border-top: 1.5px solid hsla(0,0%,100%,.55);
+    margin-top: 30px;
+    padding-top: 25px;
+}
+footer .footer__bottom p {
+    margin: 0 15px;
+    opacity: .55
 }
 .col-md-6, .col-6, .col-12, .col-md-4{
     min-height: 1px;
