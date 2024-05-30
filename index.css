@@ -1229,6 +1229,26 @@ body {
     transform: translateY(-57%)
 }
 
+#loading-logo {
+    left: 0;
+    margin: 0 auto;
+    max-width: 80px;
+    position: fixed;
+    right: 0;
+    top: 40%;
+    transform: translateX(9999px);
+    transition: opacity .25s ease;
+    z-index: 9999
+}
+
+#loading-logo.fadeout {
+    opacity: 0
+}
+
+.js__loading #loading-logo {
+    transform: translateX(0)
+}
+
 .css-logo.loading .line {
     animation-duration: 1.2s;
     animation-fill-mode: both;
@@ -1257,7 +1277,7 @@ body {
 .text-logo {
     opacity: 1;
     padding-top: 7.5px;
-    transition: all .2s ease;
+    transition: all .5s ease;
     width: 75px
 }
 
@@ -1807,6 +1827,71 @@ input {
     max-width: 5%;
     margin-top: 12px ;
     /* vertical-align: middle; */
+}
+
+.menus-page .text-columns {
+    min-height: auto;
+    padding: 0 0 100px;
+    width: 100%;
+}
+.menu-pages-nav .text-columns .text {
+    text-align: left;
+}
+.menu-pages-nav {
+    text-align: center;
+}
+
+.menu-pages-nav a {
+    background-color: #fff;
+    color: #515151;
+    display:inline-block;
+    font-family: KGHappySolid;
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 26px;
+    padding: 27px 20px;
+    transition: all .25s ease;
+    /* vertical-align: middle; */
+}
+.menu-pages-nav a.active,.menu-pages-nav a:hover {
+    background-color: #e21837;
+    color: #fff;
+    text-decoration: none
+}
+.menus-page .text-columns .white-background p {
+    font-size: 80px;
+    line-height: 96px;
+}
+.text-columns .image .image-wrapper {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 550px
+}
+.text-columns .image .image-wrapper img {
+    height: 550px;
+    /* -o-object-fit: cover; */
+    object-fit: cover;
+    width: 100%
+}
+.menus-nav {
+    /* font-size: 0 */
+}
+.menus-nav .mobile-nav {
+    display: block;
+    margin: 0 15px
+}
+.menus-nav .mobile-nav select {
+    background-color: #000;
+    border: 2px solid #656565;
+    font-family: KGHappySolid;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    height: 60px;
+}
+select {
+    text-transform: none;
 }
 
 
