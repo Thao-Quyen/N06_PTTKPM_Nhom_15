@@ -1893,6 +1893,17 @@ input {
 select {
     text-transform: none;
 }
+.menu-items {
+    background-color:#fff;
+    border: 2px solid #656565;
+    border-top: 0px;
+    padding: 30px 20px;
+    position: relative;
+    z-index: 1;
+}
+.menu-items .menu-items__wrapper {
+    padding: ;
+}
 
 
 
