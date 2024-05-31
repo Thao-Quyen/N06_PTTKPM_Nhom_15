@@ -192,24 +192,40 @@
                                     <option value="?pm=59">Kids</option>
                                     <!-- <option value="?pm=466">Sparkling Wine</option> -->
                                     <!-- <option value="?pm=465">Red Wine</option> -->
-                                    <option value="?pm=464">Vietnamese Coffees</option>
-                                    <option value="?pm=463">Teas</option>
+                                    <option value="?pm=464">Drinks</option>
+                                    <!-- <option value="?pm=464">Vietnamese Coffees</option> -->
+                                    <!-- <option value="?pm=463">Teas</option> -->
                                     <!-- <option value="?pm=462">White Wine</option> -->
-                                    <option value="?pm=461">Fresh Juices</option>
-                                    <option value="?pm=442">Beer &#038; Cider</option>
-                                    <option value="?pm=447">Soft Drinks</option>
+                                    <!-- <option value="?pm=461">Fresh Juices</option> -->
+                                    <!-- <option value="?pm=442">Beer &#038; Cider</option> -->
+                                    <!-- <option value="?pm=447">Soft Drinks</option> -->
                                     <!-- <option value="?pm=446">Cocktails</option> -->
                                     <option value="?pm=61">Vegan</option>
                                     <option value="?pm=60">Gluten Free</option>
-                                </section>
+                                </select>
                             </div>
                         </div>
                     </section>
 
                     <section class="menus-display">
                         <div class="u__wrapper row align-items-start justify-content-center">
+                            <div class="menus-display__description col-4">
+                                <div class="image-wrapper u__imgBorder">
+                                    <div class="inner">
+
+                                        <div class="menus-display__loader"></div>
+
+                                        <img src="https://www.phocafe.co.uk/wp-content/uploads/2018/06/Pho-PWF-0107-800x800.jpg" alt="">
+
+                                        <div class="image__overlay">
+                                            <div class="white-background"><p>Starters</p></div>
+                                            <p class="menu-description">Dipping, rolling and sharing are what our starters and sides were made for. We make everything fresh in-house, from our summer and spring rolls to our pork and lemongrass meatballs. All come with their own sauces, but you can also try them with our delicious table condiments: homemade chilli paste, garlic vinegar, sriracha or fish sauce.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="menus-display__items col-8">
-                                <div class="menus-display__fillters">
+                                <div class="menus-display__filters">
                                     <div class="filter-box" data-select-cat="vegan">
                                         <p>Vegan</p>
                                     </div>
@@ -225,24 +241,130 @@
                                 </div>
 
                                 <div class="menu-items">
-                                    <div class="menu-items__row row align-items-top justify-content-left">
+                                    <div class="menu-items__row row">
                                         <div class="menu-items__wrapper col-md-6">
                                                 <h3>Summer rolls</h3>
-                                                <p>Fresh rice paper summer rolls with vermicelli & pickle. Veggie, chicken, prawn, or vegan chicken</p>                                        </div>
-                                        <div class="menu-items_wrapper col-md-6">
-                                            <h3>Summer rolls</h3>
-                                            <p>Fresh rice paper summer rolls with vermicelli & pickle. Veggie, chicken, prawn, or vegan chicken</p>                                        </div>
+                                                <p>Fresh rice paper summer rolls with vermicelli & pickle. Veggie, chicken, prawn, or vegan chicken</p>
+                                        </div>
+                                        <div class="menu-items__wrapper col-md-6">
+                                            <h3>SPRING ROLLS</h3>
+                                            <p>Crispy spring rolls served with lettuce & herbs to wrap & dip. Veggie or pork.</p>
                                         </div>
                                     </div>
+
+                                    <div class="menu-items__row row">
+                                        <div class="menu-items__wrapper col-md-6">
+                                            <h3>SEAFOOD SPRING ROLL</h3>
+                                            <p>Large crispy spring roll of tiger prawn, crab & pork with nước chấm dipping sauce</p>
+                                        </div>
+                                        <div class="menu-items__wrapper col-md-6">
+                                            <h3>SPICY SALAD ROLLS</h3>
+                                            <p>spicy salad rolls with enoki, chilli & herbs (carb free)</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-items__row row">
+                                        <div class="menu-items__wrapper col-md-6">
+                                            <h3>CHICKEN WINGS</h3>
+                                            <p>Seasoned, crispy chicken wings served with sriracha</p>
+                                        </div>
+                                        <div class="menu-items__wrapper col-md-6">
+                                            <h3>VIETNAMESE PANCAKE</h3>
+                                            <p>Savoury Vietnamese crispy crepe with rice papers & herbs. Chicken & prawn, tofu or vegan chicken</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-items__row row">
+                                        <div class="menu-items__wrapper col-md-6">
+                                            <h3>MORNING GLORY</h3>
+                                            <p>Stir fried morning glory (water spinach) in garlic</p>
+                                        </div>
+                                        <div class="menu-items__wrapper col-md-6">
+                                            <h3>BEEF BETEL</h3>
+                                            <p>Beef wrapped in betel leaves, served with rice vermicelli sheets & nuoc cham</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="menu-items__row row">
+                                        <div class="menu-items__wrapper col-md-6"></div>
+                                        <div class="menu-items__wrapper col-md-6"></div>
+                                    </div>  
                                 </div>
                             </div>
                         </div>
                     </section>
                 </main>
 
+                <div class="newsletter-wrapper col-12">
+                    <div class="newsletter-v2 u__wrapper">
+                        <div class="d-flex">
+                            <img src="./wp-content/themes/library/images/notepad.webp" alt="">
+
+                            <div class="newsletter-v2__header">
+                                <label for="EMAIL">NEWS AND OFFERS</label>
+                                <p>Sign up to our newsletter to keep up-to-date with all the latest news and offers</p>
+                            </div>
+                        </div>
+                        <form id="footer__mailing-list__form" name="footer__mailing-list__form" class="signup__form mailing-list__form">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" value="" class=""  placeholder="Type your first name*">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" value=""  placeholder="Type your last name*">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" value=""  placeholder="Type your email address*">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" value=""  placeholder="Type your D.O.B">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" value=""  placeholder="Type your phone number*">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="d-flex">
+                                        <div class="checkbox_holder">
+                                            <input type="checkbox">
+                                            <p>By signing up you are agreeing to receive marketing updates from Pho.</p>                                            </div>
+                                        <div class="button">Submit</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </from>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <footer>
+            <div class="u__wrapper top">
+                <nav role="navigation">
+                    <ul class="nav footer-nav">
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Gift Vouchers</a></li>
+                        <li></li>
+                    </ul>
+                </nav>
+                <div class="social">
+                    <ul>
+                        <li><a href="#" class="facebook" title=""><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="instagram" title=""><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#" class="youtube" title=""><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#" class="twitter" title=""><i class="fa fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="u__wrapper">
+                <div class="footer__bottom | d-flex align-items-center justify-content-between">
+                    <p>&copy; Copyright Pho 2024.</p>
+                </div>
+            </div>
+        </footer>
+        
         <script type="text/javascript" src="https://www.phocafe.co.uk/wp-content/themes/pho-2018/library/dist/js/main.min.js?debug=1715582187" id="main_js-js"></script>        
     </body>
 </html>
