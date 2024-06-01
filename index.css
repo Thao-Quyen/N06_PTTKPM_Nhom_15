@@ -1880,11 +1880,11 @@ input {
 .menus-nav {
     /* font-size: 0 */
 }
-.menus-nav .mobile-nav {
+/* .menus-nav .mobile-nav {
     display: block;
     margin: 0 15px
-}
-.menus-nav .mobile-nav select {
+} */
+/* .menus-nav .mobile-nav select {
     background-color: #000;
     border: 2px solid #656565;
     font-family: KGHappySolid;
@@ -1893,9 +1893,54 @@ input {
     width: 100%;
     text-align: center;
     height: 60px;
-}
+} */
 select {
-    text-transform: none;
+    /* text-transform: none; */
+}
+.menus-nav .desktop-nav {
+    background-color: #656565;
+    /* display:flex; */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.menus-nav .desktop-nav {
+    display:block;
+    display: flex
+}
+.menus-nav li {
+    border-bottom: 2px solid #656565;
+    border-right: 2px solid #656565;
+    border-top: 2px solid #656565;
+    display: inline-block;
+    flex: 1;
+    /* list-style: none; */
+    /* vertical-align: middle; */
+}
+.menus-nav li:first-child {
+    border-left: 3px solid #656565
+}
+.menus-nav li a {
+    background-color: #000;
+    color: #fff;
+    display: table;
+    font-family: KGHappySolid;
+    font-size: 16px;
+    height: 80px;
+    /* height: 100%; */
+    max-width: 120px;
+    /* padding: 0; */
+    width: 100%;
+}
+.menus-nav li a.active,.menus-nav li a:hover {
+    background-color: #e21837;
+    text-decoration: none
+}
+.menus-nav li a p {
+    display: table-cell;
+    /* text-transform: capitalize; */
+    vertical-align:middle;
 }
 .menus-display {
     padding-top: 50px;
@@ -1971,7 +2016,7 @@ select {
     font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
     font-size: 15px;
     line-height: 18px;
-    padding-bottom: 0
+    padding-bottom: 0;
 }
 .menu-items .menu-items__wrapper::after {
     background-color: #c7c7c7;
