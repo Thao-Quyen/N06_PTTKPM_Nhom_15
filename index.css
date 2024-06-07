@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
-html {
+/* html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
-}
+} */
 
 body {
     max-width: 100vw;
@@ -166,18 +166,18 @@ ol ol,ol ul,ul ol,ul ul {
     margin-bottom: 0
 }
 
-dt {
+/* dt {
     font-weight: 700
-}
+} */
 
-dd {
+/* dd {
     margin-bottom: .5rem;
     margin-left: 0
-}
+} */
 
-blockquote {
+/* blockquote {
     margin: 0 0 1rem
-}
+} */
 
 dfn {
     font-style: italic
@@ -207,37 +207,37 @@ sup {
 }
 
 a {
-    -webkit-text-decoration-skip: objects;
+    /* -webkit-text-decoration-skip: objects; */
     background-color: transparent;
     color: #007bff;
     text-decoration: none
 }
 
-a:hover {
+/* a:hover {
     color: #3c4650;
     text-decoration: underline
-}
+} */
 
-a:not([href]):not([tabindex]),a:not([href]):not([tabindex]):focus,a:not([href]):not([tabindex]):hover {
+/* a:not([href]):not([tabindex]),a:not([href]):not([tabindex]):focus,a:not([href]):not([tabindex]):hover {
     color: inherit;
     text-decoration: none
-}
+} */
 
-a:not([href]):not([tabindex]):focus {
+/* a:not([href]):not([tabindex]):focus {
     outline: 0
-}
+} */
 
-code,kbd,pre,samp {
+/* code,kbd,pre,samp {
     font-family: monospace,monospace;
     font-size: 1em
-}
+} */
 
-pre {
+/* pre {
     -ms-overflow-style: scrollbar;
     margin-bottom: 1rem;
     margin-top: 0;
     overflow: auto
-}
+} */
 
 figure {
     margin: 0 0 1rem
@@ -248,12 +248,12 @@ img {
     vertical-align: middle
 }
 
-svg:not(:root) {
+/* svg:not(:root) {
     overflow: hidden
-}
+} */
 
 html {
-    -ms-overflow-style: scrollbar;
+    /* -ms-overflow-style: scrollbar; */
     box-sizing: border-box
 }
 
@@ -268,8 +268,13 @@ html {
     padding-right: 15px;
     width: 100%
 } */
-
-.row {
+ .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px
+}
+/* .row {
     display: flex;
     flex-wrap: wrap;
     margin-left: -15px;
@@ -410,7 +415,7 @@ html {
 
 .align-self-stretch {
     align-self: stretch!important
-}
+} */
 
 header {
     left: 0;
@@ -620,7 +625,7 @@ header .main-links a.pin-icon:before {
     width: 10px
 } */
 
-header.fixed .fixed-wrapper {
+header .fixed-wrapper {
     position: fixed
 }
 
@@ -1877,6 +1882,9 @@ input {
     object-fit: cover;
     width: 100%
 }
+/* .menus-nav .fixed-wrapper {
+    position: relative;
+} */
 .menus-nav {
     /* font-size: 0 */
 }
@@ -1899,15 +1907,27 @@ select {
 }
 .menus-nav .desktop-nav {
     background-color: #656565;
+    display:flex;
+    margin: 0;
+    padding: 0;
+    text-align: center;    
+}
+.menus-display .desktop-nav {
+    background-color: #656565;
     /* display:flex; */
     margin: 0;
     padding: 0;
     text-align: center;
+    width: 100px;
 }
 
 .menus-nav .desktop-nav {
     display:block;
     display: flex
+}
+.menus-display .desktop-nav {
+    display:block;
+    /* display: flex */
 }
 .menus-nav li {
     border-bottom: 2px solid #656565;
@@ -1918,8 +1938,20 @@ select {
     /* list-style: none; */
     /* vertical-align: middle; */
 }
+.menus-display li {
+    border-bottom: 1px solid #656565;
+    border-right: 1px solid #656565;
+    border-top: 1px solid #656565;
+    display: inline-block;
+    flex: 1;
+    /* list-style: none; */
+    /* vertical-align: middle; */
+}
 .menus-nav li:first-child {
     border-left: 3px solid #656565
+}
+.menus-display li:first-child {
+    border-bottom: 1px solid #656565
 }
 .menus-nav li a {
     background-color: #000;
@@ -1929,15 +1961,36 @@ select {
     font-size: 16px;
     height: 80px;
     /* height: 100%; */
-    max-width: 120px;
+    /* max-width: 120px; */
     /* padding: 0; */
     width: 100%;
+}
+.menus-display li a {
+    background-color: #000;
+    color: #fff;
+    display: table;
+    font-family: KGHappySolid;
+    font-size: 16px;
+    height: 80px;
+    /* height: 100%; */
+    /* max-width: 120px; */
+    /* padding: 0; */
+    width: 100px;
 }
 .menus-nav li a.active,.menus-nav li a:hover {
     background-color: #e21837;
     text-decoration: none
 }
+.menus-display li a.active,.menus-display li a:hover {
+    background-color: #e21837;
+    text-decoration: none
+}
 .menus-nav li a p {
+    display: table-cell;
+    /* text-transform: capitalize; */
+    vertical-align:middle;
+}
+.menus-display li a p {
     display: table-cell;
     /* text-transform: capitalize; */
     vertical-align:middle;
@@ -1982,6 +2035,20 @@ select {
     top: 2px;
     transition: background-color .25s ease;
     width: 15px;
+}
+.menu-items .menu-items__wrapper.inFilter h3 {
+    color: #37ab2f
+}
+.menu-items .menu-items__wrapper.outFilter {
+    opacity: .25
+}
+.menu-items .menu-items__wrapper .menu-items__info-icon {
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    right: 40px;
+    top: 10px;
+    z-index: 11
 }
 .menus-display__items .menus-display__filters .filter-box.active:before {
     background-color: #656565;
@@ -2066,6 +2133,73 @@ select {
     margin: 30px 0 auto;
     max-width: 300px;
 }
+.drinks-menu-dropdown-parent {
+    background-color: #000;
+    color: #fff;
+    display: table;
+    font-family: KGHappySolid;
+    font-size: 16px;
+    height: 80px;
+    max-width: 120px;
+    padding: 0;
+    position: relative;
+    width:  100%
+}
+.menus-display .drinks-menu-dropdown-parent {
+    background-color: #000;
+    color: #fff;
+    display: table;
+    font-family: KGHappySolid;
+    font-size: 16px;
+    height: 80px;
+    max-width: 120px;
+    padding: 0;
+    position: relative;
+    width:  100px
+}
+.drinks-menu-dropdown-parent:hover {
+    background-color: #e21837
+}
+.drinks-menu-dropdown-parent:hover .drinks-menu-ul {
+    opacity: 1;
+    z-index: 3
+}
+.drinks-menu-dropdown-parent p {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.drinks-menu-ul {
+    border: 2px solid #656565;
+    left: -2px;
+    opacity: 0;
+    position: absolute;
+    top: 80px;
+    transition: opacity .25s ease;
+    width: 170px;
+    z-index: -1
+}
+.drinks-menu-ul li a {
+    background-color: #e21837
+}
+
+.drinks-menu-ul li a:hover {
+    color: #000
+}
+
+.menus-nav .drinks-menu-li {
+    border-bottom: 2px solid #656565
+}
+
+.menus-nav .drinks-menu-li:last-child {
+    border-bottom: 0
+}
+
+.menus-nav .drinks-menu-li a {
+    height: 60px;
+    max-width: 100%
+}
+
 
 
 
