@@ -88,7 +88,7 @@
                     </div>
 
                     <div class="col-6 nav-popup__img">
-                        <img src="./wp-content/themes/library/images/04.png" alt=""/>
+                        <img src="./wp-content/themes/library/images/popup-img.png" alt=""/>
                     </div>
 
                     <div class="col-6 nav-popup__links">
@@ -142,9 +142,12 @@
                 </div>
                 <div class="background__gradient"></div>
             </div>
+            
             <div class="foreground">
-                <main class="content about-us">
+                <main class="content about-us" data-template="about-us" data-ajax="">
+                    
                     <div class="illustrated-map u__wrapper"></div>
+
                     <section class="about-header text-center">
                         <div class="white-background">
                             <p>Our Story</p>
@@ -197,47 +200,48 @@
                             </div>
                         </div>
                     </section>
-                </main>
 
-                <div class="newsletter-wrapper col-12">
-                    <div class="newsletter-v2 u__wrapper">
-                        <div class="d-flex">
-                            <img src="./wp-content/themes/library/images/notepad.webp" alt="">
-
-                            <div class="newsletter-v2__header">
-                                <label for="EMAIL">NEWS AND OFFERS</label>
-                                <p>Sign up to our newsletter to keep up-to-date with all the latest news and offers</p>
+                    <section class="newsletter-wrapper">
+                        <div class="newsletter-v2 u__wrapper">
+                            <div class="d-flex">
+                                <img src="./wp-content/themes/library/images/notepad.webp" alt="">
+    
+                                <div class="newsletter-v2__header">
+                                    <label for="EMAIL">NEWS AND OFFERS</label>
+                                    <p>Sign up to our newsletter to keep up-to-date with all the latest news and offers</p>
+                                </div>
                             </div>
-                        </div>
-                        <form id="footer__mailing-list__form" name="footer__mailing-list__form" class="signup__form mailing-list__form">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <input type="text" value="" class=""  placeholder="Type your first name*">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" value=""  placeholder="Type your last name*">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" value=""  placeholder="Type your email address*">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" value=""  placeholder="Type your D.O.B">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" value=""  placeholder="Type your phone number*">
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="d-flex">
-                                        <div class="checkbox_holder">
-                                            <input type="checkbox">
-                                            <p>By signing up you are agreeing to receive marketing updates from Pho.</p>                                            </div>
-                                        <div class="button">Submit</div>
+                            <form id="footer__mailing-list__form" name="footer__mailing-list__form" class="signup__form mailing-list__form">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="text" value="" class=""  placeholder="Type your first name*">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" value=""  placeholder="Type your last name*">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" value=""  placeholder="Type your email address*">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" value=""  placeholder="Type your D.O.B">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" value=""  placeholder="Type your phone number*">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="d-flex">
+                                            <div class="checkbox_holder">
+                                                <input type="checkbox">
+                                                <p>By signing up you are agreeing to receive marketing updates from Pho.</p>                                            </div>
+                                            <div class="button">Submit</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </from>
-                    </div>
-                </div>
+                            </from>
+                        </div>
+                    </section>
+
+                </main>
             </div>
         </div>
 
