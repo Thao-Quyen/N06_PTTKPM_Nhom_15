@@ -2241,10 +2241,6 @@ select {
     top: 0;
     z-index: -1
 }
-/* .illustrated-map {
-    background-image: url(./wp-content/themes/library/images/map_illustration.png);
-    position: fixed;
-} */
 .illustrated-map:after {
     background: linear-gradient(180deg,rgba(88,107,113,0),#586b71);
     bottom: 0;
@@ -2294,6 +2290,18 @@ select {
     padding-bottom: 180px;
 }
 
-.about-row .box {
-    
+.about-row .box p{
+    color: #787878;
+    font-family: KGHappySolid;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.about-row .image-wrapper.lower {
+    right: 0;
+    bottom: -200px;
+    transform: rotate(-9deg);
+}
+.about-us .newsletter-wrapper {
+    padding-top: 180px;
 }
