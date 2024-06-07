@@ -2036,6 +2036,7 @@ select {
     transition: background-color .25s ease;
     width: 15px;
 }
+
 .menu-items .menu-items__wrapper.inFilter h3 {
     color: #37ab2f
 }
@@ -2061,6 +2062,7 @@ select {
     position: relative;
     /* transition: transform .5s ease; */
     z-index: 1;
+    height: 490px;
 }
 .menu-items .menu-items__wrapper {
     text-align: center;
