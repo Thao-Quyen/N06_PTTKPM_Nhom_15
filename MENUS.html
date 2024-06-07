@@ -241,16 +241,20 @@
                             <div class="menus-display__items col-8">
                                 <div class="menus-display__filters">
                                     <div class="filter-box">
-                                        <p>Vegan</p>
+                                        <input type="checkbox" id="vegan" name="vegan">
+                                        <label for="vegan">Vegan</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>Vegetarian</p>
+                                        <input type="checkbox" id="vegetarian" name="vegetarian">
+                                        <label for="vegetarian">Vegetarian</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>&lt;500 Cal</p>
+                                        <input type="checkbox" id="under500cal" name="under500cal">
+                                        <label for="under500cal">&lt;500 Cal</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>Gluten Free</p>
+                                        <input type="checkbox" id="glutenFree" name="glutenFree">
+                                        <label for="glutenFree">Gluten Free</label>
                                     </div>
                                 </div>
 
@@ -319,16 +323,20 @@
                             <div class="menus-display__items col-8">
                                 <div class="menus-display__filters">
                                     <div class="filter-box">
-                                        <p>Vegan</p>
+                                        <input type="checkbox" id="vegan" name="vegan">
+                                        <label for="vegan">Vegan</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>Vegetarian</p>
+                                        <input type="checkbox" id="vegetarian" name="vegetarian">
+                                        <label for="vegetarian">Vegetarian</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>&lt;500 Cal</p>
+                                        <input type="checkbox" id="under500cal" name="under500cal">
+                                        <label for="under500cal">&lt;500 Cal</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>Gluten Free</p>
+                                        <input type="checkbox" id="glutenFree" name="glutenFree">
+                                        <label for="glutenFree">Gluten Free</label>
                                     </div>
                                 </div>
                                 <div class="menu-items">
@@ -372,22 +380,26 @@
                             <div class="menus-display__items col-8">
                                 <div class="menus-display__filters">
                                     <div class="filter-box">
-                                        <p>Vegan</p>
+                                        <input type="checkbox" id="vegan" name="vegan" onclick="checkboxes()">
+                                        <label for="vegan">Vegan</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>Vegetarian</p>
+                                        <input type="checkbox" id="vegetarian" name="vegetarian">
+                                        <label for="vegetarian">Vegetarian</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>&lt;500 Cal</p>
+                                        <input type="checkbox" id="under500cal" name="under500cal">
+                                        <label for="under500cal">&lt;500 Cal</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>Gluten Free</p>
+                                        <input type="checkbox" id="glutenFree" name="glutenFree" onclick="toggleHeadingColor()">
+                                        <label for="glutenFree">Gluten Free</label>
                                     </div>
                                 </div>
                                 <div class="menu-items">
                                     <div class="menu-items__row row">
-                                        <div class="menu-items__wrapper col-md-6">
-                                            <h3>Phở đặc biệt</h3>
+                                        <div class="menu-items__wrapper col-md-6" data-filters="vegan,glutenFree">
+                                            <h3 class>Phở đặc biệt</h3>
                                             <p>King prawns, chicken & flash fried steak with garlic in beef stock</p>
                                         </div>
                                         <div class="menu-items__wrapper col-md-6">
@@ -434,17 +446,22 @@
                             <div class="menus-display__items col-8">
                                 <div class="menus-display__filters">
                                     <div class="filter-box">
-                                        <p>Vegan</p>
+                                        <input type="checkbox" id="vegan" name="vegan">
+                                        <label for="vegan">Vegan</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>Vegetarian</p>
+                                        <input type="checkbox" id="vegetarian" name="vegetarian">
+                                        <label for="vegetarian">Vegetarian</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>&lt;500 Cal</p>
+                                        <input type="checkbox" id="under500cal" name="under500cal">
+                                        <label for="under500cal">&lt;500 Cal</label>
                                     </div>
                                     <div class="filter-box">
-                                        <p>Gluten Free</p>
+                                        <input type="checkbox" id="glutenFree" name="glutenFree">
+                                        <label for="glutenFree">Gluten Free</label>
                                     </div>
+                                
                                 </div>
                                 <div class="menu-items">
                                     <div class="menu-items__row row">
@@ -552,6 +569,10 @@
             </div>
         </footer>
         
+        <script>
+
+        </script>
+
         <script type="text/javascript" src="https://www.phocafe.co.uk/wp-content/themes/pho-2018/library/dist/js/main.min.js?debug=1715582187" id="main_js-js"></script>   
     </body>
 </html>
