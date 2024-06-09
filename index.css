@@ -1003,7 +1003,7 @@ header.navfade .nav-popup__links {
     opacity: 1
 }
 
-header.navfade .nav-popup__img:after {
+header.navfade .nav-popup__img::after {
     transform: translateX(200%)
 }
 
@@ -1531,7 +1531,7 @@ footer li a {
 footer a, footer p{
     color: #fff;
     font-family: KGHappySolid;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 20px;
 }
 footer a:hover {
@@ -1902,7 +1902,7 @@ select {
 }
 
 .menus-nav .desktop-nav {
-    display:block;
+    /* display:block; */
     display: flex
 }
 .menus-display .desktop-nav {
@@ -1914,7 +1914,7 @@ select {
     border-right: 2px solid #656565;
     border-top: 2px solid #656565;
     display: inline-block;
-    flex: 1;
+    flex: 1; /* Để chia không gian các phần tử con đồng đều */
     /* list-style: none; */
     /* vertical-align: middle; */
 }
@@ -1961,10 +1961,10 @@ select {
     background-color: #e21837;
     text-decoration: none
 }
-.menus-display li a.active,.menus-display li a:hover {
+/* .menus-display li a.active,.menus-display li a:hover {
     background-color: #e21837;
     text-decoration: none
-}
+} */
 .menus-nav li a p {
     display: table-cell;
     /* text-transform: capitalize; */
@@ -1976,7 +1976,7 @@ select {
     vertical-align:middle;
 }
 .menus-display {
-    padding-top: 50px;
+    padding-top: 150px;
 }
 .menus-display__items {
     overflow: hidden;
@@ -2004,6 +2004,7 @@ select {
     font-size: 14px;
     line-height: 20px;
     margin-bottom: 0;
+    cursor: pointer;
 }
 
 .menus-display__items .menus-display__filters .filter-box {
@@ -2035,6 +2036,7 @@ select {
     width: 15px;
     border-radius: 0px;
     appearance: none;
+    cursor: pointer;
 }
 .filter-box input[type="checkbox"]:checked {
     background-color: #656565
@@ -2063,7 +2065,7 @@ select {
     background-color:#fff;
     border: 3px solid #656565;
     border-top: 0px;
-    padding: 30px 20px;
+    padding: 0px 20px;
     position: relative;
     /* transition: transform .5s ease; */
     z-index: 1;
@@ -2071,7 +2073,7 @@ select {
 }
 .menu-items .menu-items__wrapper {
     text-align: center;
-    padding: 20px 70px 15px;
+    padding: 20px 30px 15px;
     position: relative;
     text-align: center;
     /* transition: opacity .25s ease; */
@@ -2130,7 +2132,7 @@ select {
 .menus-display__description .image__overlay .white-background p {
     font-size: 40px;
     line-height: 50px;
-    /* white-space: normal; */
+    white-space: normal;
 }
 .menus-display__description .image__overlay .menu-description {
     color: #fff;
@@ -2216,7 +2218,7 @@ select {
     left: 0;
     margin: 0 auto;
     max-width: 1030px;
-    position: fixed;
+    position:fixed;
     right: 0;
     top: 0;
     z-index: -1;
@@ -2288,4 +2290,65 @@ select {
 .about-us .newsletter-wrapper {
     padding-top: 180px;
 }
-
+.about-us .newsletter-wrapper {
+    padding-top: 180px;
+}
+/* @media (min-width: 992px) {
+    .col-lg-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+} */
+.categories-nav-list {
+    /* border-left: 2px solid #000; */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+}
+/* @media (min-width: 0px) and (max-width: 1280px) {
+    .categories-nav-list a {
+        font-size: calc( 16.005px + 3.12 * ( ( 100vw - 0px) / 1280 ));
+    }
+} */
+/* .categories-nav-list a {
+    font-size: 16.005px;
+    color: #000;
+    display: in;
+    padding: 8px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+} */
+.categories-nav-list li a {
+    background-color: #000;
+    color: #fff;
+    display: table;
+    font-family: KGHappySolid;
+    font-size: 16px;
+    height: 60px;
+    /* height: 100%; */
+    /* max-width: 120px; */
+    /* padding: 0; */
+    width: 80%;
+    text-align: center;
+    margin-left: 0px;
+}
+.nav-cat {
+    padding-top: 50px;
+}
+.categories-nav-list li a p {
+    display: table-cell;
+    vertical-align: middle;
+}
+.categories-nav-list li a.active,.categories-nav-list li a:hover {
+    background-color: #e21837;
+    text-decoration: none
+}
+.sticky-top {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 115px;
+    z-index: 1020; /* Ensure it appears above other content */
+}
+/* .menus-display__description {
+    margin-left: -60px;
+} */
