@@ -2478,8 +2478,8 @@ height: 45rem;
 }
 
 .content .tranding-slide {
-width: 30%;
-height: 55%;
+width: 28%;
+height: 58%;
 position: relative;
 overflow: hidden;
 object-fit: cover;
@@ -2510,7 +2510,7 @@ display: none;
 
 .tranding-slider-control {
 position: relative;
-bottom: 250px;
+bottom: 230px;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -2570,5 +2570,13 @@ content: '';
 background: var(--primary);
 }
 .foreground main.gallery{
-    padding-top: 170px
+    padding-top: 160px
+}
+.swiper-wrapper .text {
+    color: #485157;
+    font-family: KGHappySolid;
+    font-size: 13px;
+    line-height: 24px;
+    margin: 30px 0 auto;
+    /* max-width: 300px; */
 }
