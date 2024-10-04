@@ -1728,6 +1728,18 @@ section {
     /* margin: 0px; */
 }
 
+.signup__form .button {
+    cursor: pointer;
+}
+
+.signup__form .error {
+    color: red;
+    display: none;
+    font-size: 12px;
+    line-height: 16px;
+    width: 50%;
+}
+
 .newsletter-v2 img {
     /* display: none; */
     height: auto;
@@ -1770,9 +1782,25 @@ input {
     width: 100%;
 }
 
-/* .newsletter-v2 form {
-    display: flex;
-} */
+.error-input {
+    border-color: #e21837!important;
+}
+
+.modal-opener-book {
+    cursor: pointer;
+}
+
+.newsletter-v2 form .error{
+    bottom: -10px;
+    color: red;
+    display: none;
+    font-size: 12px;
+    left: 35px;
+    line-height: 16px;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+}
 
 /* .newsletter-v2 form input {
     margin-right: 150px;
@@ -2344,10 +2372,9 @@ select {
     text-decoration: none
 }
 .sticky-top {
-    position: -webkit-sticky; /* For Safari */
     position: sticky;
     top: 115px;
-    z-index: 1020; /* Ensure it appears above other content */
+    z-index: 1020;
 }
 /* .menus-display__description {
     margin-left: -60px;

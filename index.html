@@ -22,7 +22,7 @@
             <div class="u__wrapper">
                 <div class="d-flex align-items-start">
 
-                    <div class="logo js__init-width nav-hidden">
+                    <div class="">
                         <div class="fixed-wrapper">
 
                             <a href="./index.html">
@@ -280,33 +280,34 @@
                                     <p>Sign up to our newsletter to keep up-to-date with all the latest news and offers</p>
                                 </div>
                             </div>
-                            <form id="footer__mailing-list__form" name="footer__mailing-list__form" class="signup__form mailing-list__form">
+                            <form id="footer__mailing-list__form" name="footer__mailing-list__form" class="signup__form mailing-list__form" novalidate>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <input type="text" value="" class=""  placeholder="Type your first name*">
+                                        <input type="text" value="" name="first_name" class="mailing-list__first-name input-first-name" id="footer__mailing-list__first-name"  placeholder="Type your first name*" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" value=""  placeholder="Type your last name*">
+                                        <input type="text" value="" name="last_name" class="mailing-list__last-name input-last-name" id="footer__mailing-list__last-name" placeholder="Type your last name*" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" value=""  placeholder="Type your email address*">
+                                        <input type="email" value="" name="EMAIL" class="mailing-list__email input-email" id="footer__mailing-list__email"  placeholder="Type your email address*" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" value=""  placeholder="Type your D.O.B">
+                                        <input type="date" value="" name="dob" class="mailing-list__dob input-dob empty" id="footer__mailing-list__dob"  placeholder="Type your D.O.B">
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" value=""  placeholder="Type your phone number*">
-                                    </div>
+                                        <input type="text" value="" name="phone_number" class="mailing-list__phone-number input-phone-number" id="footer__mailing-list__phone-number" placeholder="Type your phone number*" required>
+                                    </div>  
                                     <div class="col-md-4">
                                         <div class="d-flex">
                                             <div class="checkbox_holder">
-                                                <input type="checkbox">
+                                                <input type="checkbox" value="" name="PRIVACY" class="mailing-list__privacy" id="footer__mailing-list__privacy" required>
                                                 <p>By signing up you are agreeing to receive marketing updates from Pho.</p>                                            </div>
-                                            <div class="button">Submit</div>
+                                            <button type="button" id="footer__mailing-list__submit_v2" class="button input-submit mailing-list__submit">Submit</button>
+                                            <p class="error">Please agree to the privacy policy</p>
                                         </div>
                                     </div>
                                 </div>
-                            </from>
+                            </form>
                         </div>
                     </div>
                     
@@ -356,8 +357,35 @@
 				</div>
 			</div>
 		</div>
-        
-        <script type="text/javascript" src="https://www.phocafe.co.uk/wp-content/themes/pho-2018/library/dist/js/main.min.js?debug=1715582187" id="main_js-js"></script>        
 
+        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function(){
+                emailjs.init("2tUcc_rPhb5QtRfIM");
+            })();
+        </script>
+        
+        <script>
+            document.getElementById('footer__mailing-list__submit_v2').addEventListener('click', function(event) {
+                event.preventDefault();
+        
+                const agree = document.getElementById('footer__mailing-list__privacy').checked;
+                if (!agree) {
+                    alert('You must agree to receive marketing updates.');
+                    return;
+                }
+        
+                const form = document.getElementById('footer__mailing-list__form');
+                emailjs.sendForm('service_2pzma96', 'template_u7pqlex', form)
+                    .then(function(response) {
+                        console.log('Email sent successfully!', response.status, response.text);
+                        alert('Thank you for signing up!');
+                    }, function(error) {
+                        console.error('Failed to send email.', error);
+                        alert('Failed to send email. Please try again.');
+                    });
+            });
+        </script>
+        <script type="text/javascript" src="https://www.phocafe.co.uk/wp-content/themes/pho-2018/library/dist/js/main.min.js?debug=1728022300" id="main_js-js"></script>        
     </body>
 </html>
