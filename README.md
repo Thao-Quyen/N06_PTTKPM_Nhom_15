@@ -1,9 +1,9 @@
-# RESTAURANT WEBSITE PROJECT
+# Phát triển ứng dụng Website quản lý đặt món nhà hàng
 
 ### Mô tả dự án
 
 
-### Project Structure
+### Project File Structure
 
 _Dưới đây là cấu trúc thư mục của dự án và mô tả các thành phần:_
 
