@@ -1,0 +1,12 @@
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+    "branch": "Thanh Xuan",
+    "address": "72A, D.Nguyen Trai, Thanh Xuan, Ha Noi",
+    "name": "Nguyễn Văn A",
+    "phone": "0123456789",
+    "date": "2024-02-28",
+    "time": "18:30",
+    "people": 4
+}

@@ -282,27 +282,54 @@
             })();
         </script>
         
+        <!-- Customers -->
         <script>
-            document.getElementById('footer__mailing-list__submit_v2').addEventListener('click', function(event) {
+            document.getElementById("footer__mailing-list__form").addEventListener("submit", async function (event) {
                 event.preventDefault();
-        
-                const agree = document.getElementById('footer__mailing-list__privacy').checked;
-                if (!agree) {
-                    alert('You must agree to receive marketing updates.');
+
+                const firstName = document.getElementById("footer__mailing-list__first-name").value;
+                const lastName = document.getElementById("footer__mailing-list__last-name").value;
+                const email = document.getElementById("footer__mailing-list__email").value;
+                const dob = document.getElementById("footer__mailing-list__dob").value;
+                const phoneNumber = document.getElementById("footer__mailing-list__phone-number").value;
+                const privacyAgreed = document.getElementById("footer__mailing-list__privacy").checked;
+
+                if (!privacyAgreed) {
+                    alert("Please agree to the privacy policy.");
                     return;
                 }
-        
-                const form = document.getElementById('footer__mailing-list__form');
-                emailjs.sendForm('service_2pzma96', 'template_u7pqlex', form)
-                    .then(function(response) {
-                        console.log('Email sent successfully!', response.status, response.text);
-                        alert('Thank you for signing up!');
-                    }, function(error) {
-                        console.error('Failed to send email.', error);
-                        alert('Failed to send email. Please try again.');
+
+                const customerData = {
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    dob: dob || null,
+                    phone_number: phoneNumber,
+                    privacy_agreed: privacyAgreed
+                };
+
+                try {
+                    const response = await fetch("http://localhost:3000/customers", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(customerData)
                     });
+
+                    const result = await response.json();
+                    console.log("Database response:", result);
+
+                    // Gửi email sau khi lưu database thành công
+                    const form = document.getElementById("footer__mailing-list__form");
+                    await emailjs.sendForm("service_2pzma96", "template_u7pqlex", form);
+
+                    alert("Thank you for signing up!");
+                } catch (error) {
+                    console.error("Error:", error);
+                    alert("Failed to submit form. Please try again.");
+                }
             });
         </script>
+        
         <script type="text/javascript" src="https://www.phocafe.co.uk/wp-content/themes/pho-2018/library/dist/js/main.min.js?debug=1728022300" id="main_js-js"></script>  
          
 

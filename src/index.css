@@ -1630,10 +1630,16 @@ footer .footer__bottom p {
     max-width: 600px;
 
 }
+.locations-page .text-columns .white-background {
+    margin: 0 auto 30px;
+    max-width: 1000px;
+}
+
 .text-columns .white-background p {
     font-size: 45px;
     line-height: 52px;
 }
+
 .text-columns .red-background {
     margin-bottom: 20px
 }
@@ -3390,4 +3396,260 @@ z-index: -1;
     transform: none;
     height: auto;
   }
+}
+
+.menu-items .menu-items__wrapper h3 {
+    color: #e21837;
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 26px;
+    /* letter-spacing: .8px; */
+    text-transform: uppercase;
+}
+
+.locations-page .white-background p {
+    background-color: #fff;
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 15px;
+    white-space: nowrap;
+    font-size: 5px;
+}
+
+@media (min-width: 1200px) {
+    .xl\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.gap-12 {
+    gap: 3rem;
+}
+.c__igniteImage {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: all 1sease;
+}
+
+.u__img-cover img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.relative {
+    position: relative;
+}
+
+.bg-black\/10 {
+    background-color: #201f1f1a;
+}
+
+.rounded-\[10px\] {
+    border-radius: 10px;
+}
+
+.h-\[254px\] {
+    height: 254px;
+}
+
+.grid {
+    display: grid;
+}
+
+.leading-snug {
+    line-height: 1.375;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.text-\[22px\] {
+    font-size: 22px;
+}
+.font-copy {
+    font-family: Platform Web, Geneva, Helvetica, sans-serif;
+}
+
+
+
+/* .c__location-card .mb-4 {
+    margin-bottom: 1rem;
+} */
+
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+
+/* .gap-x-2 {
+    -moz-column-gap: .5rem;
+    column-gap: .5rem;
+} */
+.flex.flex-wrap.gap-x-4 {
+    gap: 0.5rem; /* Hoặc gap: 0; nếu muốn loại bỏ hoàn toàn */
+}
+
+.underline {
+    text-decoration-line: underline;
+}
+.leading-relaxed {
+    line-height: 1.625;
+}
+.leading-relaxed {
+    line-height: 1.625;
+}
+.grid > div {
+    background-color: #EEE4DA; /* Màu be */
+    padding: 20px; /* Tạo khoảng cách bên trong */
+    border-radius: 10px; /* Bo góc mềm mại */
+}
+
+.c__location-card {
+    flex-direction: column;
+    align-items: start; /* Căn các phần tử theo một lề cố định */
+    gap: 4px; /* Điều chỉnh khoảng cách giữa các phần tử */
+    line-height: 1.2; /* Giảm khoảng cách dòng */
+}
+
+.c__location-card h3 {
+    margin-bottom: 4px; /* Giảm khoảng cách dưới tiêu đề */
+}
+
+.c__location-card p {
+    margin: 0px 0px 0px; /* Giảm khoảng cách dưới tiêu đề */
+}
+
+.c__location-card .d-flex {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Giảm khoảng cách giữa icon và địa chỉ */
+}
+
+.c__location-card .button {
+    margin-top: 8px; /* Điều chỉnh khoảng cách với các thành phần trên */
+    padding: 12px 24px; /* Tăng chiều dày button */
+    border-radius: 28px;
+}
+
+
+.locations-page h3 {
+    /* color: #e21837; */
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 26px;
+    /* letter-spacing: .8px; */
+    text-transform: uppercase;
+}
+
+.locations-page .u__wrapper .grid p {
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    font-weight: 900;
+    line-height: 26px;
+    /* letter-spacing: .8px; */
+}
+.locations-page .text-columns .white-background p {
+    font-size: 65px;
+    line-height: 81px;
+}
+
+.locations-page .text-columns .white-background {
+    margin: 0 auto 50px;
+    max-width: 1000px;
+}
+@media (min-width: 992px) {
+    .lg\:p-6 {
+        padding: 1.5rem;
+    }
+}
+.rounded-\[20px\] {
+    border-radius: 20px;
+}
+.bg-red {
+    --tw-bg-opacity: 1;
+    background-color: rgb(226 24 55 / var(--tw-bg-opacity, 1));
+}
+@media (min-width: 1200px) {
+    .xl\:p-8 {
+        padding: 2rem;
+    }
+}
+.text-white {
+    --tw-text-opacity: 1;
+    color: rgb(238 228 218 / var(--tw-text-opacity, 1));
+}
+
+.booking-widget h5 {
+    color: #fff;
+    /* display: inline-block; */
+    font-family: KGTangledUpInYou;
+    font-size: 35px;
+    font-weight: 300;
+    line-height: 26px;
+    overflow: hidden;
+    /* padding: 15px; */
+    position: relative;
+    transition: color .25s ease
+}
+.booking-widget label {
+    color: #fff;
+    /* display: inline-block; */
+    font-family: Platform Web, Geneva, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 350;
+    line-height: 26px;
+    overflow: hidden;
+    /* padding: 15px; */
+    position: relative;
+    transition: color .25s ease
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+.modal-body .button {
+    margin-top: 8px;
+    padding: 12px 24px;
+    border-radius: 28px;
+}
+.form-label {
+    display: block;
+    margin-bottom: 1px; /* Điều chỉnh khoảng cách giữa label và input */
+}
+.modal-body form input {
+    border: 2px solid #bfbfbf;
+    color: #000;
+    /* display: inline; */
+    font-family: KGHappySolid;
+    font-size: 14px;
+    /* line-height: 22px; */
+    padding: 10px;
+    /* margin-bottom: 30px; */
+    vertical-align: middle;
+    width: 100%;
+}
+.modal-body form select {
+    border: 2px solid #bfbfbf;
+    color: #000;
+    /* display: inline; */
+    font-family: KGHappySolid;
+    font-size: 14px;
+    /* line-height: 22px; */
+    padding: 10px;
+    /* margin-bottom: 30px; */
+    vertical-align: middle;
+    width: 100%;
+}
+
+.locations-page .newsletter-wrapper {
+    margin-top: 200px;
 }
