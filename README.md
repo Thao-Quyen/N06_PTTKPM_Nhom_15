@@ -1,7 +1,15 @@
-# Phát triển ứng dụng Website quản lý đặt món nhà hàng
+# Interactive Restaurant Booking & Digital Menu Platform
 
 ### Mô tả dự án
 
+**Interactive Restaurant Booking & Digital Menu Platform** là một nền tảng hỗ trợ nhà hàng trong việc đặt bàn trực tuyến và cung cấp thực đơn kỹ thuật số, giúp khách hàng dễ dàng duyệt menu, tìm hiểu thông tin nhà hàng và đặt chỗ nhanh chóng.  
+
+#### 🌟 **Tính năng chính**  
+✔ **Đặt bàn trực tuyến** – Cho phép khách hàng chọn ngày, giờ, số người và đặt chỗ dễ dàng.  
+✔ **Thực đơn kỹ thuật số (Digital Menu)** – Hiển thị thực đơn trực quan với hình ảnh, mô tả món ăn.  
+✔ **Quản lý thông tin nhà hàng** – Hiển thị thông tin như vị trí, lịch mở cửa, sự kiện đặc biệt.  
+✔ **Tích hợp Email Notification** – Gửi xác nhận đặt bàn qua email tự động.  
+✔ **Giao diện thân thiện, dễ sử dụng** – Hỗ trợ cả trên desktop và thiết bị di động.
 
 ### Project File Structure
 
