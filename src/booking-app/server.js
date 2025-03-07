@@ -40,17 +40,36 @@ app.post("/bookings", (req, res) => {
 // API customers
 app.post("/customers", (req, res) => {
     const { first_name, last_name, email, dob, phone_number, privacy_agreed } = req.body;
-    
-    const sql = "INSERT INTO customers (first_name, last_name, email, dob, phone_number, privacy_agreed) VALUES (?, ?, ?, ?, ?, ?)";
-    db.query(sql, [first_name, last_name, email, dob || null, phone_number, privacy_agreed], (err, result) => {
+
+    if (!first_name || !last_name || !email) {
+        return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    // Kiểm tra xem email đã tồn tại chưa
+    const checkEmailSQL = "SELECT email FROM customers WHERE email = ?";
+    db.query(checkEmailSQL, [email], (err, results) => {
         if (err) {
-            console.error("Error inserting data:", err);
-            res.status(500).json({ message: "Error saving customer data" });
-        } else {
-            res.json({ message: "Customer data saved successfully!" });
+            console.error("Error checking email:", err);
+            return res.status(500).json({ message: "Database error" });
         }
+
+        if (results.length > 0) {
+            // Email đã tồn tại
+            return res.status(400).json({ message: "Email already exists. Please use another email." });
+        }
+
+        // Nếu email chưa tồn tại, tiến hành chèn vào MySQL
+        const insertSQL = "INSERT INTO customers (first_name, last_name, email, dob, phone_number, privacy_agreed) VALUES (?, ?, ?, ?, ?, ?)";
+        db.query(insertSQL, [first_name, last_name, email, dob || null, phone_number, privacy_agreed], (err, result) => {
+            if (err) {
+                console.error("Error inserting data:", err);
+                return res.status(500).json({ message: "Error saving customer data" });
+            }
+            res.json({ message: "Customer data saved successfully!" });
+        });
     });
 });
+
 
 // API xuất hóa đơn PDF
 app.get("/invoice/:id", (req, res) => {

@@ -2499,8 +2499,8 @@ padding: 7rem 0;
 }
 
 #tranding .tranding-slider {
-height: 52rem;
-padding: 2rem 0;
+height: 48rem;
+padding: 0rem 0;
 position: relative;
 }
 
@@ -2543,7 +2543,7 @@ display: none;
 
 .tranding-slider-control {
 position: relative;
-bottom: 230px;
+bottom: 220px;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -3465,7 +3465,7 @@ z-index: -1;
 }
 
 .font-medium {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .text-\[22px\] {
@@ -3555,7 +3555,7 @@ z-index: -1;
     /* letter-spacing: .8px; */
 }
 .locations-page .text-columns .white-background p {
-    font-size: 65px;
+    font-size: 75px;
     line-height: 81px;
 }
 
@@ -3580,7 +3580,7 @@ z-index: -1;
         padding: 2rem;
     }
 }
-.text-white {
+.text-white-1 {
     --tw-text-opacity: 1;
     color: rgb(238 228 218 / var(--tw-text-opacity, 1));
 }
@@ -3651,5 +3651,177 @@ z-index: -1;
 }
 
 .locations-page .newsletter-wrapper {
+    margin-top: 150px;
+    margin-bottom: 80px;
+}
+
+.menus-page .newsletter-wrapper {
+    margin-top: 150px;
+    margin-bottom: 80px;
+}
+
+.about-us .newsletter-wrapper {
     margin-top: 200px;
+}
+
+@media (min-width: 1200px) {
+    .xl\:py-0 {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.px-3 {
+    padding-left: .75rem;
+    padding-right: .75rem;
+}
+
+@media (min-width: 1200px) {
+    .button.large-button {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+}
+.button.large-button {
+    border-radius: 77.5px;
+    border-width: 1px;
+    /* --tw-border-opacity: 1; */
+    border-color: rgb(226 24 55 / var(--tw-border-opacity, 1));
+    /* --tw-bg-opacity: 1; */
+    /* -backgroundcolor: rgb(226 24 55 / var(--tw-bg-opacity, 1)); */
+}
+@media (min-width: 1200px) {
+    .xl\:inline-block {
+        display: inline-block;
+    }
+}
+@media (min-width: 1200px) {
+    .xl\:pb-24 {
+        padding-bottom: 6rem;
+    }
+}
+@media (min-width: 1200px) {
+    .xl\:left-0 {
+        left: 0;
+    }
+}
+@media (min-width: 1200px) {
+    .xl\:bottom-0 {
+        bottom: 0;
+    }
+}
+@media (min-width: 1200px) {
+    .xl\:absolute {
+        position: absolute;
+    }
+}
+.w-full {
+    width: 100%;
+}
+.h-full {
+    height: 100%;
+}
+.z-20 {
+    z-index: 20;
+}
+.absolute {
+    position: absolute;
+}
+.top-0 {
+    top: 0;
+}
+.left-0 {
+    left: 0;
+}
+.z-10 {
+    z-index: 10;
+}
+@media (min-width: 1200px) {
+    .xl\:h-\[630px\] {
+        height: 630px;
+    }
+}
+@media (min-width: 1200px) {
+    .xl\:h-full {
+        height: 100%;
+    }
+}
+.u__img-cover img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+@media (min-width: 1200px) {
+    .xl\:w-2\/3 {
+        width: 66.666667%;
+    }
+}
+@media (min-width: 1200px) {
+    .aoi.in-view.aoi__pop-up, .aoi.in-view .aoi__pop-up {
+        transform: translateY(0);
+    }
+}
+@media (min-width: 1200px) {
+    .aoi.in-view.aoi__fade, .aoi.in-view .aoi__fade {
+        opacity: 1;
+    }
+}
+@media (min-width: 1200px) {
+    .aoi {
+        will-change: transform, opacity;
+        transition: all .35sease;
+    }
+}
+@media (min-width: 1200px) {
+    .xl\:leading-\[68px\] {
+        line-height: 68px;
+    }
+}
+@media (min-width: 1200px) {
+    .xl\:text-\[70px\] {
+        font-size: 70px;
+    }
+}
+.font-extrabold {
+    font-weight: 800;
+}
+.font-title {
+    font-family: roc-grotesk-compressed, sans-serif;
+}
+.mb-5 {
+    margin-bottom: 1.25rem !important;
+}
+@media (min-width: 1200px) {
+    .xl\:text-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+}
+
+.gallery .newsletter-wrapper {
+    margin-top: 0px;
+    margin-bottom: 80px;
+}
+.gallery .newsletter-wrapper {
+    padding-top: 0px;
+}
+.gallery .swiper {
+    padding-bottom: 0px;
+}
+.gallery .image-wrapper img {
+    display: block;
+}
+
+.gallery .container{
+    height: 700px;
+}
+.m__promo__overlay-title {
+    margin-bottom: 0px;
+    letter-spacing: -5px;
+}
+.m__promo__overlay-copy {
+    letter-spacing: -2px;
 }

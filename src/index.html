@@ -303,7 +303,7 @@
                                             <div class="checkbox_holder">
                                                 <input type="checkbox" value="" name="PRIVACY" class="mailing-list__privacy" id="footer__mailing-list__privacy" required>
                                                 <p>By signing up you are agreeing to receive marketing updates from Pho.</p>                                            </div>
-                                            <button type="button" id="footer__mailing-list__submit_v2" class="button input-submit mailing-list__submit">Submit</button>
+                                            <button type="submit" id="footer__mailing-list__submit_v2" class="button input-submit mailing-list__submit">Submit</button>
                                             <p class="error">Please agree to the privacy policy</p>
                                         </div>
                                     </div>
@@ -365,8 +365,8 @@
                 emailjs.init("2tUcc_rPhb5QtRfIM");
             })();
         </script>
-        
-        <!-- Customers -->
+
+        <!-- Customers Newsletter -->
         <script>
             document.getElementById("footer__mailing-list__form").addEventListener("submit", async function (event) {
                 event.preventDefault();
@@ -413,8 +413,14 @@
                 }
             });
         </script>
-        
+        <script>
+                function downloadInvoice(id) {
+                    window.location.href = `http://localhost:3000/invoice/${id}`;
+                }
+        </script>
+
         <script type="text/javascript" src="https://www.phocafe.co.uk/wp-content/themes/pho-2018/library/dist/js/main.min.js?debug=1728022300" id="main_js-js"></script>  
-              
+        <script src="./booking-app/server.js"></script>
+        <script src="./booking-app/package.json"></script>  
     </body>
 </html>

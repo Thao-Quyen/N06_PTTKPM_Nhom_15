@@ -1,4 +1,5 @@
-# Interactive Restaurant Booking & Digital Menu Platform
+# Xây dựng Website Đặt Bàn Nhà Hàng & Thực Đơn Điện Tử 
+## Interactive Restaurant Booking & Digital Menu Platform
 
 ### Mô tả dự án
 
@@ -36,7 +37,10 @@ Project/
 │   ├── menus.html       # Trang Menu
 │   ├── our-story.html   # Trang Our Story
 │   ├── gallery.html     # Trang Gallery
+│   ├── locations.html     # Trang Gallery
 │   ├── wp-content/      # Thư mục chứa nội dung như images, fronts...
+│   ├── wp-list/         # Thư mục chứa html của các chi nhánh như thanh-xuan.html, ha-dong.html...
+
 │
 ├── README.md            # Tệp hướng dẫn sử dụng dự án.
 ├── CHANGELOG.md         # Tệp ghi lại các thay đổi trong dự án.

@@ -59,8 +59,8 @@
                     <div class="main-links">
                         <div class="fixed-wrapper">
 
-                            <a href="" class="bag-icon"><img src="./wp-content/themes/library/images/bag-icon.svg" alt="Bag Icon">Book a Table</a>
-                            <a href="" class="pin-icon"><img src="./wp-content/themes/library/images/pin-icon.svg" alt="Pin Icon">Pho To Go</a>
+                            <a href="./locations.html" class="bag-icon"><img src="./wp-content/themes/library/images/bag-icon.svg" alt="Bag Icon">Book a Table</a>
+                            <a href="" class="pin-icon"><img src="./wp-content/themes/library/images/user-admin(2).svg" alt="Admin Icon" width="25" height="25">Admin Mode</a>
                             	
                             <div class="hamburger__wrapper d-inline-block">
                                 <div class="hamburger js__open-nav">
@@ -873,9 +873,7 @@
                         </div>
                     </div>
 
-                </main>
-
-                <div class="newsletter-wrapper col-12">
+                    <div class="newsletter-wrapper col-12">
                         <div class="newsletter-v2 u__wrapper">
                             <div class="d-flex">
                                 <img src="./wp-content/themes/library/images/notepad.webp" alt="">
@@ -907,7 +905,7 @@
                                             <div class="checkbox_holder">
                                                 <input type="checkbox" value="" name="PRIVACY" class="mailing-list__privacy" id="footer__mailing-list__privacy" required>
                                                 <p>By signing up you are agreeing to receive marketing updates from Pho.</p>                                            </div>
-                                            <button type="button" id="footer__mailing-list__submit_v2" class="button input-submit mailing-list__submit">Submit</button>
+                                            <button type="submit" id="footer__mailing-list__submit_v2" class="button input-submit mailing-list__submit">Submit</button>
                                             <p class="error">Please agree to the privacy policy</p>
                                         </div>
                                     </div>
@@ -915,6 +913,7 @@
                             </form>
                         </div>
                     </div>
+                </main>
 
         <footer>
             <div class="u__wrapper top">
@@ -1053,5 +1052,200 @@
             });
 
         </script>
+
+        <!-- Booking Modal -->
+        <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+            <div class="modal-dialog booking-widget | lg:p-6 bg-black rounded-[20px]">
+                <div class="modal-content bg-red rounded-[20px] relative">
+                    <div class="inner | pt-7 px-4 pb-4 xl:p-8">
+                        <div class="modal-header">
+                            <h5 class="" id="bookingModalLabel">Book a Table</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="bookingForm">
+                                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                    <div class="md-3" style="flex: 1; text-align: left;">
+                                        <label for="branch" class="form-label uppercase"style="display: block; margin-bottom: 0px;">Restaurant Location</label>
+                                    </div>
+                                    <div class="md-3" style="flex: 1; text-align: center;">
+                                        <input type="text" class="form-control" id="branch" readonly>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="address" class="form-label uppercase">Address</label>
+                                    <input type="text" class="form-control" id="address" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label uppercase">Your Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label uppercase">Phone Number</label>
+                                    <input type="text" class="form-control" id="phone" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="date" class="form-label uppercase">Date</label>
+                                    <input type="date" class="form-control" id="date" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="time" class="form-label uppercase">Time</label>
+                                        <input type="time" class="form-control" id="time" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="people" class="form-label uppercase">Number of people</label>
+                                        <select name="people" class="form-control" id="people">
+                                            <option value="1">1 Person</option>
+                                            <option value="2">2 People</option>
+                                            <option value="3">3 People</option>
+                                            <option value="4">4 People</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="button" style="display: block; margin: 0 auto; text-align: center;">Confirm Booking</button>
+                                <!-- <button onclick="downloadInvoice(1)">Download Invoice</button> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking -->
+        <script>
+            console.log("Script loaded!");
+
+            document.getElementById("bookingForm").addEventListener("submit", async function (e) {
+                e.preventDefault();
+                
+                console.log("Form submitted!");
+
+                const bookingData = {
+                    branch: document.getElementById("branch").value,
+                    address: document.getElementById("address").value,
+                    name: document.getElementById("name").value,
+                    phone: document.getElementById("phone").value,
+                    date: document.getElementById("date").value,
+                    time: document.getElementById("time").value,
+                    people: document.getElementById("people").value
+                };
+                console.log("Booking Data:", bookingData);
+
+                try {
+                    const response = await fetch("http://localhost:3000/bookings", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(bookingData)
+                    });
+
+                    if (!response.ok) throw new Error("Network response was not ok");
+
+                    const result = await response.json();
+                    console.log("Server Response:", result); // Kiểm tra phản hồi từ server
+                    alert(result.message);
+                } catch (error) {
+                    console.error("Error:", error);
+                    alert("Booking failed. Check console for details.");
+                }
+            });
+        </script>
+
+        <!-- Customers -->
+        <script>
+            document.getElementById("footer__mailing-list__form").addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const firstName = document.getElementById("footer__mailing-list__first-name").value;
+                const lastName = document.getElementById("footer__mailing-list__last-name").value;
+                const email = document.getElementById("footer__mailing-list__email").value;
+                const dob = document.getElementById("footer__mailing-list__dob").value;
+                const phoneNumber = document.getElementById("footer__mailing-list__phone-number").value;
+                const privacyAgreed = document.getElementById("footer__mailing-list__privacy").checked;
+
+                if (!privacyAgreed) {
+                    alert("Please agree to the privacy policy.");
+                    return;
+                }
+
+                const customerData = {
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    dob: dob || null,
+                    phone_number: phoneNumber,
+                    privacy_agreed: privacyAgreed
+                };
+
+                try {
+                    const response = await fetch("http://localhost:3000/customers", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(customerData)
+                    });
+
+                    const result = await response.json();
+                    console.log("Database response:", result);
+
+                    // Gửi email sau khi lưu database thành công
+                    const form = document.getElementById("footer__mailing-list__form");
+                    await emailjs.sendForm("service_2pzma96", "template_u7pqlex", form);
+
+                    alert("Thank you for signing up!");
+                } catch (error) {
+                    console.error("Error:", error);
+                    alert("Failed to submit form. Please try again.");
+                }
+            });
+        </script>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const bookNowButtons = document.querySelectorAll(".book-now");
+        
+                bookNowButtons.forEach(button => {
+                    button.addEventListener("click", function () {
+                        const branch = this.getAttribute("data-branch");
+                        const address = this.getAttribute("data-address");
+        
+                        document.getElementById("branch").value = branch;
+                        document.getElementById("address").value = address;
+        
+                        var bookingModal = new bootstrap.Modal(document.getElementById("bookingModal"));
+                        bookingModal.show();
+                    });
+                });
+            });
+        </script>
+        <script>
+                function downloadInvoice(id) {
+                    window.location.href = `http://localhost:3000/invoice/${id}`;
+                }
+        </script>
+        <script>
+            app.post("/bookings", (req, res) => {
+                console.log("Data received from frontend:", req.body); // Kiểm tra dữ liệu
+
+                const { branch, address, name, phone, date, time, people } = req.body;
+                const sql = "INSERT INTO bookings (branch, address, name, phone, date, time, people) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                
+                db.query(sql, [branch, address, name, phone, date, time, people], (err, result) => {
+                    if (err) {
+                        console.error("MySQL Error:", err); // Kiểm tra lỗi
+                        res.status(500).json({ message: "Failed to save booking!" });
+                    } else {
+                        console.log("Booking successful:", result); // Kiểm tra kết quả MySQL
+                        res.json({ message: "Booking successful:" });
+                    }
+                });
+            });
+
+        </script>
+
+
+        <script src="./booking-app/server.js"></script>
+        <script src="./booking-app/package.json"></script>
     </body>
 </html>

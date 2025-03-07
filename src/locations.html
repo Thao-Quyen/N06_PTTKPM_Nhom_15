@@ -50,7 +50,7 @@
 
                         <a href="./MENUS.html">MENU</a>
                         <a href="./our-story.html">OUR STORY</a>
-                        <a href="">LOCATIONS</a>
+                        <a href="./locations.html">LOCATIONS</a>
                         <a href="./gallery.html">GALLERY</a>
 
 
@@ -59,8 +59,8 @@
                     <div class="main-links">
                         <div class="fixed-wrapper">
 
-                            <a href="" class="bag-icon"><img src="./wp-content/themes/library/images/bag-icon.svg" alt="Bag Icon">Book a Table</a>
-                            <a href="" class="pin-icon"><img src="./wp-content/themes/library/images/pin-icon.svg" alt="Pin Icon">Pho To Go</a>
+                            <a href="./locations.html" class="bag-icon"><img src="./wp-content/themes/library/images/bag-icon.svg" alt="Bag Icon">Book a Table</a>
+                            <a href="" class="pin-icon"><img src="./wp-content/themes/library/images/user-admin(2).svg" alt="Admin Icon" width="25" height="25">Admin Mode</a>
                             	
                             <div class="hamburger__wrapper d-inline-block">
                                 <div class="hamburger js__open-nav">
@@ -151,7 +151,7 @@
                         <div class="u__wrapper row align-items-center justify-content-center" style="margin-top: -20px;">
                             <div class="text col-md-12">
                                 <div class="white-background swipeEffect">
-                                    <p class="swipeEffect_text">Our restaurants</p>
+                                    <p class="swipeEffect_text">Our Restaurants</p>
                                 </div>
                             </div>
                             
@@ -621,6 +621,11 @@
                     const result = await response.json();
                     console.log("Database response:", result);
 
+                    if (result.message === "Email already exists. Please use another email.") {
+                        alert("This email is already registered. Please use a different email.");
+                        return; // Không gửi email nếu email đã tồn tại
+                    }
+
                     // Gửi email sau khi lưu database thành công
                     const form = document.getElementById("footer__mailing-list__form");
                     await emailjs.sendForm("service_2pzma96", "template_u7pqlex", form);
@@ -676,7 +681,38 @@
             });
 
         </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const hamburger = document.querySelector(".main-links .js__open-nav"); // Nút mở menu trên header
+                const closeButton = document.querySelector("#nav-popup .js__open-nav"); // Nút hamburger trong popup
+                const navPopup = document.getElementById("nav-popup"); // Popup menu
+                const body = document.body;
+
+                // Khi click vào hamburger ở header, mở menu
+                hamburger.addEventListener("click", function () {
+                    navPopup.style.transform = "translateX(0)"; // Hiển thị popup
+                    body.classList.add("no-scroll");
+                });
+
+                // Khi click vào hamburger trong popup, đóng menu
+                closeButton.addEventListener("click", function () {
+                    navPopup.style.transform = "translateX(9999px)"; // Đóng popup
+                    body.classList.remove("no-scroll");
+                });
+
+                // Khi click ra ngoài popup, đóng popup
+                navPopup.addEventListener("click", function (e) {
+                    if (e.target === navPopup) {
+                        navPopup.style.transform = "translateX(9999px)";
+                        body.classList.remove("no-scroll");
+                    }
+                });
+            });
+        </script>
+
         <script src="./booking-app/server.js"></script>
         <script src="./booking-app/package.json"></script>
+
     </body>
 </html>
