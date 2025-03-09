@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Invoice</title>
+</head>
+<body>
+    <h1>Booking Invoice</h1>
+    <div id="invoice-content"></div>
+    <button onclick="window.print()">Download Invoice</button>
+
+    <script>
+        // Lấy dữ liệu từ localStorage
+        const bookingData = JSON.parse(localStorage.getItem("bookingData"));
+
+        if (bookingData) {
+            document.getElementById("invoice-content").innerHTML = `
+                <p><strong>Restaurant Location:</strong> ${bookingData.branch}</p>
+                <p><strong>Address:</strong> ${bookingData.address}</p>
+                <p><strong>Name:</strong> ${bookingData.name}</p>
+                <p><strong>Phone:</strong> ${bookingData.phone}</p>
+                <p><strong>Date:</strong> ${bookingData.date}</p>
+                <p><strong>Time:</strong> ${bookingData.time}</p>
+                <p><strong>People:</strong> ${bookingData.people}</p>
+            `;
+        } else {
+            document.getElementById("invoice-content").innerHTML = "<p>No booking data found.</p>";
+        }
+    </script>
+
+    <script>
+        const invoicePage = window.open("invoice.html", "_blank");
+        invoicePage.onload = function () {
+            invoicePage.document.title = "Booking Invoice";
+        };
+    </script>
+</body>
+</html>

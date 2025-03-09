@@ -548,12 +548,8 @@
 
         <!-- Booking -->
         <script>
-            console.log("Script loaded!");
-
             document.getElementById("bookingForm").addEventListener("submit", async function (e) {
                 e.preventDefault();
-                
-                console.log("Form submitted!");
 
                 const bookingData = {
                     branch: document.getElementById("branch").value,
@@ -564,7 +560,6 @@
                     time: document.getElementById("time").value,
                     people: document.getElementById("people").value
                 };
-                console.log("Booking Data:", bookingData);
 
                 try {
                     const response = await fetch("http://localhost:3000/bookings", {
@@ -576,13 +571,19 @@
                     if (!response.ok) throw new Error("Network response was not ok");
 
                     const result = await response.json();
-                    console.log("Server Response:", result); // Kiểm tra phản hồi từ server
                     alert(result.message);
+
+                    // Lưu thông tin booking vào localStorage để trang invoice đọc
+                    localStorage.setItem("bookingData", JSON.stringify(bookingData));
+
+                    // Mở trang invoice.html
+                    window.open("./wp-content/wp-list/invoice.html", "_blank");
                 } catch (error) {
                     console.error("Error:", error);
                     alert("Booking failed. Check console for details.");
                 }
             });
+
         </script>
 
         <!-- Customers -->
