@@ -1,12 +1,43 @@
-POST http://localhost:3000/bookings
-Content-Type: application/json
+# POST http://localhost:3000/bookings
+# Content-Type: application/json
 
-{
-    "branch": "Thanh Xuan",
-    "address": "72A, D.Nguyen Trai, Thanh Xuan, Ha Noi",
-    "name": "Nguyễn Văn A",
-    "phone": "0123456789",
-    "date": "2024-02-28",
-    "time": "18:30",
-    "people": 4
-}
+# {
+#     "branch": "Thanh Xuan",
+#     "address": "72A, D.Nguyen Trai, Thanh Xuan, Ha Noi",
+#     "name": "Nguyễn Văn A",
+#     "phone": "0123456789",
+#     "date": "2024-02-28",
+#     "time": "18:30",
+#     "people": 4
+# }
+
+### Gửi yêu cầu tạo booking
+# POST http://localhost:3000/bookings
+# Content-Type: application/json
+
+# {
+#     "branch": "Thanh Xuan",
+#     "branch_id": 1,
+#     "address": "72A, D.Nguyen Trai, Thanh Xuan, Ha Noi",
+#     "name": "Nguyen Van B",
+#     "phone": "0123456789",
+#     "date": "2025-03-30",
+#     "time": "18:30:00",
+#     "people": 5
+# }
+
+
+# ### Lấy danh sách bookings
+# GET http://localhost:3000/bookings
+
+# ### Kiểm tra booked_tables
+# GET http://localhost:3000/booked-tables
+
+
+# curl -X POST http://localhost:3000/api/login \
+#      -H "Content-Type: application/json" \
+#      -d '{"username": "admin", "password": "123456"}'
+
+curl -X POST http://localhost:3000/branches \
+-H "Content-Type: application/json" \
+-d '{"name": "Thanh Xuan", "address": "72A, D.Nguyen Trai, Thanh Xuan, Ha Noi", "total_tables": 15, "image_url": "https://example.com/image.jpg"}'

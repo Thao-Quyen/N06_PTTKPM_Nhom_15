@@ -2,7 +2,7 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <title>Menu - Vietnamese Food - Pho Restaurants</title>
+        <title>Locations - Vietnamese Food - Pho Restaurants</title>
         <meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -60,7 +60,21 @@
                         <div class="fixed-wrapper">
 
                             <a href="./locations.html" class="bag-icon"><img src="./wp-content/themes/library/images/bag-icon.svg" alt="Bag Icon">Book a Table</a>
-                            <a href="" class="pin-icon"><img src="./wp-content/themes/library/images/user-admin(2).svg" alt="Admin Icon" width="25" height="25">Admin Mode</a>
+                            <a href="javascript:void(0);" class="pin-icon" data-bs-toggle="modal" data-bs-target="#adminLoginModal">
+                                <img src="./wp-content/themes/library/images/user-admin(2).svg" alt="Admin Icon" width="25" height="25">Admin Mode
+                            </a>
+
+                            <!-- Popup Đăng nhập -->
+                            <div id="loginPopup" class="popup">
+                                <div class="popup-content">
+                                    <span class="close" onclick="closeLoginPopup()">&times;</span>
+                                    <h2>Admin Login</h2>
+                                    <input type="text" id="username" placeholder="Username">
+                                    <input type="password" id="password" placeholder="Password">
+                                    <button onclick="loginAdmin()">Login</button>
+                                    <p id="loginMessage"></p>
+                                </div>
+                            </div>
                             	
                             <div class="hamburger__wrapper d-inline-block">
                                 <div class="hamburger js__open-nav">
@@ -158,6 +172,8 @@
                         </div>
                     </section>
 
+                    <div class="u__wrapper row align-items-center justify-content-center" style="margin-top: -20px;">
+
                     <div class="u__wrapper">
                         <div class="grid xl:grid-cols-3 gap-12">
                             
@@ -188,7 +204,7 @@
                             <div class="c__location-card | relative">
                                 <!-- <p class="c__location-card-distance | hidden absolute top-2 left-2 rounded-full bg-black px-4 py-2 z-20 text-white text-sm font-normal font-copy leading-[14px] "></p> -->
                                 <div class="c__location-card-media | w-full h-[254px] rounded-[10px] overflow-hidden relative u__img-cover mb-4 bg-black/10r">
-                                    <a href="/locations/baker-street/">
+                                    <a href="/src/wp-content/wp-list/hoan-kiem.html">
                                         <div class="spinner black regular" data-astro-cid-lolztsa2>
                                             <div class="spinner-wrapper" data-astro-cid-lolztsa2>
                                                 <div class="spinner-inner" data-astro-cid-lolztsa2></div>
@@ -453,6 +469,8 @@
                 </div>
             </div>
         </footer>
+
+
         
         <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
         <script type="text/javascript">
@@ -460,6 +478,133 @@
                 emailjs.init("2tUcc_rPhb5QtRfIM");
             })();
         </script>
+
+        <!-- API và hiển thị chi nhánh -->
+        <script>
+            function fetchBranches() {
+                fetch("/api/branches")
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            let branchList = document.getElementById("branchList");
+                            branchList.innerHTML = "";
+                            data.branches.forEach(branch => {
+                                branchList.innerHTML += `
+                                    <div class="c__location-card">
+                                        <div class="c__location-card-media">
+                                            <img src="${branch.image_url}" alt="${branch.name}">
+                                        </div>
+                                        <h3>${branch.name}</h3>
+                                        <p>${branch.address}</p>
+                                        <button onclick="editBranch(${branch.id})">Sửa</button>
+                                        <button onclick="deleteBranch(${branch.id})">Xoá</button>
+                                    </div>
+                                `;
+                            });
+                        }
+                    })
+                    .catch(err => console.error("Lỗi tải chi nhánh:", err));
+            }
+
+            // Gọi hàm để hiển thị chi nhánh khi tải trang
+            document.addEventListener("DOMContentLoaded", fetchBranches);
+        </script>
+
+        <!-- Thêm chi Nhánh -->
+        <script>
+            document.getElementById("addBranchForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                let name = document.getElementById("branchName").value;
+                let address = document.getElementById("branchAddress").value;
+                let image_url = document.getElementById("branchImage").value;
+
+                if (!branchName || !branchAddress || !branchImage) {
+                    alert("Vui lòng nhập đầy đủ thông tin!");
+                    return;
+                }
+
+                let branchData = {
+                    name: branchName,
+                    address: branchAddress,
+                    image: branchImage
+                };
+
+                fetch("/api/branches", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, address, image_url })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message);
+                    fetchBranches(); // Cập nhật danh sách chi nhánh
+                })
+                .catch(err => console.error("Lỗi thêm chi nhánh:", err));
+            });
+        </script>
+
+
+        <!-- Admin Login Modal -->
+        <div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark text-white rounded-3">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="adminLoginModalLabel">Admin Login</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="adminLoginForm">
+                            <div class="mb-3">
+                                <label for="adminUsername" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="adminUsername" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="adminPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="adminPassword" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let form = document.getElementById("adminLoginForm");
+
+                form.addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    console.log("Sự kiện submit đã kích hoạt!"); // Kiểm tra xem có chạy vào đây không
+
+                    let username = document.getElementById("adminUsername").value;
+                    let password = document.getElementById("adminPassword").value;
+
+                    console.log("Dữ liệu gửi:", { username, password }); // Kiểm tra dữ liệu gửi đi
+
+                    fetch("http://localhost:3000/api/login", {  // ⚠️ Kiểm tra URL API
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ username, password })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Phản hồi từ server:", data);
+                        if (data.success) {
+                            alert("Login successful!");
+                            location.reload();
+                        } else {
+                            alert("Invalid credentials!");
+                        }
+                    })
+                    .catch(error => console.error("Lỗi Fetch:", error));
+                });
+            });
+        </script>
+
         
         <!-- Send email -->
         <!-- <script>
@@ -502,6 +647,7 @@
                                         <label for="branch" class="form-label uppercase"style="display: block; margin-bottom: 0px;">Restaurant Location</label>
                                     </div>
                                     <div class="md-3" style="flex: 1; text-align: center;">
+                                        <input type="hidden" id="branch_id" name="branch_id">
                                         <input type="text" class="form-control" id="branch" readonly>
                                     </div>
                                 </div>
@@ -525,7 +671,22 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="time" class="form-label uppercase">Time</label>
-                                        <input type="time" class="form-control" id="time" required>
+                                        <!-- <input type="time" class="form-control" id="time" required> -->
+                                        <select class="form-control" id="time" required>
+                                            <script>
+                                                let select = document.getElementById("time");
+                                                for (let h = 9; h <= 21; h++) {
+                                                    for (let m of [0, 30]) { // Chỉ thêm các mốc 00 và 30 phút
+                                                        let hour = String(h).padStart(2, "0");
+                                                        let minute = String(m).padStart(2, "0");
+                                                        let option = document.createElement("option");
+                                                        option.value = `${hour}:${minute}`;
+                                                        option.textContent = `${hour}:${minute}`;
+                                                        select.appendChild(option);
+                                                    }
+                                                }
+                                            </script>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="people" class="form-label uppercase">Number of people</label>
@@ -534,11 +695,48 @@
                                             <option value="2">2 People</option>
                                             <option value="3">3 People</option>
                                             <option value="4">4 People</option>
+                                            <option value="5">5 People</option>
+                                            <option value="6">6 People</option>
+                                            <option value="7">7 People</option>
+                                            <option value="8">8 People</option>
+                                            <option value="9">9 People</option>
+                                            <option value="10">10 People</option>
+                                            <option value="11">11 People</option>
+                                            <option value="12">12 People</option>
                                         </select>
                                     </div>
                                 </div>
-                                <button type="submit" class="button" style="display: block; margin: 0 auto; text-align: center;">Confirm Booking</button>
-                                <!-- <button onclick="downloadInvoice(1)">Download Invoice</button> -->
+
+                                <!-- <button id="confirmButton" type="submit" class="button" style="display: block; margin: 0 auto; text-align: center;">Confirm Booking</button> -->
+
+                                <!-- <div class="row" id="buttonContainer">
+                                    <div class="col-md-6 mb-3">
+                                        <button type="submit" class="button" style="display: block; margin: 0 auto; text-align: center;">Confirm Booking</button>
+
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <button type="submit" class="button" style="display: block; margin: 0 auto; text-align: center;">Track Your Booking</button>
+                                    </div>
+                                </div> -->
+
+                                <div id="buttonContainer">
+                                    <button id="confirmButton" type="submit" class="button" style="display: block; margin: 0 auto; text-align: center;">
+                                        Confirm Booking
+                                    </button>
+                                
+                                    <div class="col-12">
+                                        <div class="row" id="trackContainer" style="display: none;">
+                                            <div class="col-md-6 mb-3">
+                                                <button type="submit" class="button w-100">Confirm Booking</button>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <button id="trackButton" class="button w-100">
+                                                    <a id="trackLink" href="#">Track Your Booking</a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                                                
                             </form>
                         </div>
                     </div>
@@ -551,7 +749,13 @@
             document.getElementById("bookingForm").addEventListener("submit", async function (e) {
                 e.preventDefault();
 
+                const branchInput = document.getElementById("branch");
+                const trackLink = document.getElementById("trackLink");
+                const trackContainer = document.getElementById("trackContainer");
+                const confirmButton = document.getElementById("confirmButton");
+
                 const bookingData = {
+                    branch_id: document.getElementById("branch_id").value,
                     branch: document.getElementById("branch").value,
                     address: document.getElementById("address").value,
                     name: document.getElementById("name").value,
@@ -577,14 +781,43 @@
                     localStorage.setItem("bookingData", JSON.stringify(bookingData));
 
                     // Mở trang invoice.html
-                    window.open("./wp-content/wp-list/invoice.html", "_blank");
+                    // window.open("./wp-content/wp-list/invoice.html", "_blank");
+
+                    // Nếu booking thành công, tự động mở invoice
+                    if (result.status === "Confirmed" && result.invoiceUrl) {
+                        window.open(result.invoiceUrl, "_blank");
+
+                        // Ẩn nút Confirm Booking
+                        document.getElementById("confirmButton").style.display = "none";
+                        document.getElementById("trackContainer").style.display = "flex";
+
+                        
+                        // Điều hướng đến trang chi nhánh khi nhấn Track Your Booking
+                        // document.getElementById("trackButton").addEventListener("click", function () {
+                        //     window.location.href = "/src/wp-content/wp-list/thanh-xuan.html";
+                        // });
+
+                        // Cập nhật đường dẫn chính xác theo chi nhánh
+                        if (branchInput.value) {
+                            const formattedBranch = branchInput.value.trim().toLowerCase().replace(/\s+/g, "-");
+                            trackLink.href = `./wp-content/wp-list/${formattedBranch}.html`;
+                        }
+                    }
+                    
                 } catch (error) {
                     console.error("Error:", error);
                     alert("Booking failed. Check console for details.");
                 }
             });
 
+            document.getElementById("bookingModal").addEventListener("hidden.bs.modal", function () {
+                document.getElementById("confirmButton").style.display = "block"; 
+                document.getElementById("trackContainer").style.display = "none"; 
+            });
+
         </script>
+
+
 
         <!-- Customers -->
         <script>
@@ -658,30 +891,30 @@
                 });
             });
         </script>
-        <script>
+        <!-- <script>
                 function downloadInvoice(id) {
                     window.location.href = `http://localhost:3000/invoice/${id}`;
                 }
-        </script>
-        <script>
+        </script> -->
+        <!-- <script>
             app.post("/bookings", (req, res) => {
-                console.log("Data received from frontend:", req.body); // Kiểm tra dữ liệu
+                console.log("Data received from frontend:", req.body); 
 
                 const { branch, address, name, phone, date, time, people } = req.body;
                 const sql = "INSERT INTO bookings (branch, address, name, phone, date, time, people) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 
                 db.query(sql, [branch, address, name, phone, date, time, people], (err, result) => {
                     if (err) {
-                        console.error("MySQL Error:", err); // Kiểm tra lỗi
+                        console.error("MySQL Error:", err); 
                         res.status(500).json({ message: "Failed to save booking!" });
                     } else {
-                        console.log("Booking successful:", result); // Kiểm tra kết quả MySQL
+                        console.log("Booking successful:", result); 
                         res.json({ message: "Booking successful:" });
                     }
                 });
             });
 
-        </script>
+        </script> -->
 
         <script>
             document.addEventListener("DOMContentLoaded", function () {

@@ -4,36 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .invoice-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .invoice-content {
+            text-align: left;
+        }
+
+        .invoice-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        .invoice-content p strong {
+            color: #007bff;
+        }
+
+        .download-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
-    <h1>Booking Invoice</h1>
-    <div id="invoice-content"></div>
-    <button onclick="window.print()">Download Invoice</button>
+    <div class="invoice-container">
+        <h1>Booking Invoice</h1>
+        <div class="invoice-content" id="invoice-content"></div>
+        <button class="download-btn" onclick="window.print()">Download Invoice</button>
+    </div>
 
     <script>
         // Lấy dữ liệu từ localStorage
-        const bookingData = JSON.parse(localStorage.getItem("bookingData"));
+        let bookingData = JSON.parse(localStorage.getItem("bookingData")) || {};
 
-        if (bookingData) {
+        // Lấy booking_id từ URL nếu không có trong localStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        if (!bookingData.booking_id && urlParams.has("booking_id")) {
+            bookingData.booking_id = urlParams.get("booking_id");
+        }
+
+        // Hiển thị thông tin booking
+        if (bookingData.booking_id) {
             document.getElementById("invoice-content").innerHTML = `
-                <p><strong>Restaurant Location:</strong> ${bookingData.branch}</p>
-                <p><strong>Address:</strong> ${bookingData.address}</p>
-                <p><strong>Name:</strong> ${bookingData.name}</p>
-                <p><strong>Phone:</strong> ${bookingData.phone}</p>
-                <p><strong>Date:</strong> ${bookingData.date}</p>
-                <p><strong>Time:</strong> ${bookingData.time}</p>
-                <p><strong>People:</strong> ${bookingData.people}</p>
+                <p><strong>Booking ID:</strong> ${bookingData.booking_id}</p>
+                <p><strong>Restaurant Location:</strong> ${bookingData.branch || "N/A"}</p>
+                <p><strong>Address:</strong> ${bookingData.address || "N/A"}</p>
+                <p><strong>Name:</strong> ${bookingData.name || "N/A"}</p>
+                <p><strong>Phone:</strong> ${bookingData.phone || "N/A"}</p>
+                <p><strong>Date:</strong> ${bookingData.date || "N/A"}</p>
+                <p><strong>Time:</strong> ${bookingData.time || "N/A"}</p>
+                <p><strong>People:</strong> ${bookingData.people || "N/A"}</p>
             `;
         } else {
             document.getElementById("invoice-content").innerHTML = "<p>No booking data found.</p>";
         }
-    </script>
-
-    <script>
-        const invoicePage = window.open("invoice.html", "_blank");
-        invoicePage.onload = function () {
-            invoicePage.document.title = "Booking Invoice";
-        };
     </script>
 </body>
 </html>
